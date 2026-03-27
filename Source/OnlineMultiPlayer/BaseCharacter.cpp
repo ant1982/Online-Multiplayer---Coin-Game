@@ -148,7 +148,7 @@ int32 ABaseCharacter::GetCurrentScore()
 
 void ABaseCharacter::SetCurrentScore(int32 DeltaScore)
 {
-	if (Role == ROLE_Authority)
+	if (HasAuthority())
 	{
 		currentscore += DeltaScore;
 	}

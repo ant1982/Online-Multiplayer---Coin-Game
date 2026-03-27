@@ -1,7 +1,7 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "OnlineMultiPlayerCharacter.h"
-#include "HeadMountedDisplayFunctionLibrary.h"
+//#include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
@@ -69,28 +69,28 @@ void AOnlineMultiPlayerCharacter::SetupPlayerInputComponent(class UInputComponen
 	PlayerInputComponent->BindAxis("LookUpRate", this, &AOnlineMultiPlayerCharacter::LookUpAtRate);
 
 	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &AOnlineMultiPlayerCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &AOnlineMultiPlayerCharacter::TouchStopped);
+	//PlayerInputComponent->BindTouch(IE_Pressed, this, &AOnlineMultiPlayerCharacter::TouchStarted);
+	//PlayerInputComponent->BindTouch(IE_Released, this, &AOnlineMultiPlayerCharacter::TouchStopped);
 
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AOnlineMultiPlayerCharacter::OnResetVR);
+	//// VR headset functionality
+	//PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AOnlineMultiPlayerCharacter::OnResetVR);
 }
 
 
-void AOnlineMultiPlayerCharacter::OnResetVR()
-{
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void AOnlineMultiPlayerCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void AOnlineMultiPlayerCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
-}
+//void AOnlineMultiPlayerCharacter::OnResetVR()
+//{
+//	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
+//}
+//
+//void AOnlineMultiPlayerCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
+//{
+//		Jump();
+//}
+//
+//void AOnlineMultiPlayerCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
+//{
+//		StopJumping();
+//}
 
 void AOnlineMultiPlayerCharacter::TurnAtRate(float Rate)
 {
